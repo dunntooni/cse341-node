@@ -23,7 +23,7 @@ const options = {
 const MONGODB_URL =
    process.env.MONGODB_URL ||
    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.j6osm.mongodb.net/shop?retryWrites=true&w=majority`;
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // this should be working now, but we'll see
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
