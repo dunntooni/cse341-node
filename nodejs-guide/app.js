@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
-
+require('dotenv').config();
 const app = express();
 
 const corsOptions = {
@@ -18,10 +18,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 const options = {
    family: 4,
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
 };
 const MONGODB_URL =
    process.env.MONGODB_URL ||
-   'mongodb+srv://dunntooni:Videogamer2@cluster0.j6osm.mongodb.net/shop?retryWrites=true';
+   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.j6osm.mongodb.net/shop?retryWrites=true&w=majority`;
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
