@@ -1,32 +1,28 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-   title: {
-      type: String,
-      required: true,
-   },
-   price: {
-      type: Number,
-      required: true,
-   },
-   description: {
-      type: String,
-      required: true,
-   },
-   imageUrl: {
-      type: String,
-      required: true,
-   },
-   userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-   },
-})
+  title: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  }
+});
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('Product', productSchema);
+
 // const mongodb = require('mongodb');
 // const getDb = require('../util/database').getDb;
 
@@ -44,13 +40,12 @@ module.exports = mongoose.model('Product', productSchema)
 //     const db = getDb();
 //     let dbOp;
 //     if (this._id) {
+//       // Update the product
 //       dbOp = db
 //         .collection('products')
 //         .updateOne({ _id: this._id }, { $set: this });
 //     } else {
-//       dbOp = db
-//         .collection('products')
-//         .insertOne(this); // Creates or updates a products collection
+//       dbOp = db.collection('products').insertOne(this);
 //     }
 //     return dbOp
 //       .then(result => {
@@ -73,7 +68,7 @@ module.exports = mongoose.model('Product', productSchema)
 //       })
 //       .catch(err => {
 //         console.log(err);
-//       }); // Leaving find empty calls all products. Filters can be added within it. toArray makes all the data come at once. Otherwise, find returns a 'cursor', which can be used to parse the database.
+//       });
 //   }
 
 //   static findById(prodId) {
@@ -87,9 +82,9 @@ module.exports = mongoose.model('Product', productSchema)
 //         return product;
 //       })
 //       .catch(err => {
-//         console.log(err)
-//       }) // returns 1 product whose id matches prodId
-//   };
+//         console.log(err);
+//       });
+//   }
 
 //   static deleteById(prodId) {
 //     const db = getDb();
@@ -100,7 +95,7 @@ module.exports = mongoose.model('Product', productSchema)
 //         console.log('Deleted');
 //       })
 //       .catch(err => {
-//         console.log(err)
+//         console.log(err);
 //       });
 //   }
 // }
