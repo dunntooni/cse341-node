@@ -1,5 +1,8 @@
 const Product = require('../models/product');
 const Order = require('../models/order');
+const Crypto = require('crypto');
+random = Crypto.randomBytes(16);
+random_string = random.toString('hex');
 
 exports.getProducts = (req, res, next) => {
    Product.find()
@@ -118,6 +121,7 @@ exports.postOrder = (req, res, next) => {
                userId: req.user,
             },
             products: products,
+            id: random_string,
          });
          return order.save();
       })
